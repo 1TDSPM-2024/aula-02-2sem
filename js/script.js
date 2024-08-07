@@ -39,6 +39,13 @@ let frutasPrecificadas = objFrutas.map((frutinhas)=>{
 });
 
 
+
+//* Utilizando o filter para filtrar as frutas com preço menor que 7
+const frutasAbaixoDoPreco = frutasPrecificadas.filter((fruta)=> fruta.precos <= 7);
+console.log(frutasAbaixoDoPreco)
+
+
+
 //* Utilizando o Reduce
 let numeros = [1,2,3,4,5];
 
