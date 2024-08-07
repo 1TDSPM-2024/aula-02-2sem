@@ -11,6 +11,8 @@ let novasFrutas = arrFrutas.map((itemDoArray,indice,array)=>{
     return {"id":indice+1,"nomeFruta":itemDoArray}
 }); //? Parametros(1º - Item do array, 2º - indice do array, 3º - Próprio array)
 
+
+
 //* Utilizando a função Map
 let objFrutas = [
     {"id":1,"nmFruta":"Jaca"},
@@ -31,7 +33,14 @@ let objPrecos = [
 let frutasPrecificadas = objFrutas.map((frutinhas)=>{
     
     let objCerto = objPrecos.find(verificar => verificar.id === frutinhas.id)
-    return {...frutinhas, objCerto:precos ? objCerto.precos:null};//! Isso se chama Spreach
+    return {...frutinhas, precos:objCerto ? objCerto.precos:null};//! Isso se chama Spreach
     //? A primeira primeira parte do Spreach já pega o objeto que já está sendo passado
     //? a segunda parte faz uma verificação e retorna o valor null caso a verificação esteja errada
 });
+
+
+//* Utilizando o Reduce
+let numeros = [1,2,3,4,5];
+
+const soma = numeros.reduce((acumulado,valorAtual)=> { return acumulado+valorAtual});//! No Reduce você soma todos os valores 
+console.log(soma)
