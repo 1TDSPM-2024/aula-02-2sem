@@ -1,37 +1,35 @@
-//Declarando um array com 5 frutas.
+// MAP, FIND, FILTER, REDUCE
 
-// let frutas = [
-//     "Jaca",
-//     "Carambola",
-//     "Zimbro",
-//     "Mirtillo",
-//     "Lichia"
-// ];
+const frutas = ["Jaca", "Carambola", "Zimbro", "Mirtilo", "Lichia"];
 
-//Utilizando o map para iterar sobre o array de FRUTAS.
+// .map(function(item))
+let frutasMaiusculas = frutas.map((fruta) => {
+    let retorno = fruta.toUpperCase();
+    return retorno;
+})
+console.log(frutasMaiusculas);
 
-// let novasFrutas = frutas.map((itemDoArray) => {
-//     console.log("MINHAS FRUTAS", itemDoArray)
-//     return itemDoArray
-// });
 
-// console.log("Novas Frutas", novasFrutas)
+console.log("--------------------------");
 
-//Trnsformando o array de frutas em array de objetos:
 
-// let arrObjFrutas = frutas.map((fruta, indice, array) => {
-//     return { "id": indice + 1, "nomeFruta": fruta };
-// });
+// .map(function(item, indice, array))
+let objetosFrutas = frutas.map((fruta, indice) => {
+    return { "id": indice + 1, "nomeFruta": fruta };
+})
+console.log(objetosFrutas);
 
-// console.log(arrObjFrutas);
 
-//Integrando arrays com MAP
-let frutas = [
-    { "id": 1, "nmFruta": "Jaca" },
-    { "id": 2, "nmFruta": "Carambola" },
-    { "id": 3, "nmFruta": "Zimbro" },
-    { "id": 4, "nmFruta": "Mirtilo" },
-    { "id": 5, "nmFruta": "Lichia" },
+console.log("--------------------------");
+
+
+// integrando arrays com map e find
+let frutas2 = [
+    { "id": 1, "nomeFruta": 'Jaca' },
+    { "id": 2, "nomeFruta": 'Carambola' },
+    { "id": 3, "nomeFruta": 'Zimbro' },
+    { "id": 4, "nomeFruta": 'Mirtilo' },
+    { "id": 5, "nomeFruta": 'Lichia' }
 ];
 
 let precos = [
@@ -39,16 +37,32 @@ let precos = [
     { "id": 2, "preco": 7.56 },
     { "id": 3, "preco": 10.14 },
     { "id": 4, "preco": 17.56 },
-    { "id": 5, "preco": 6. },
+    { "id": 5, "preco": 6.33 }
 ];
 
-let frutasPrecificadas = frutas.map((fruta) => {
+// aqui uso MAP e FIND
+let frutasPrecificadas = frutas2.map((fruta) => {
+    // acha o obj de precos que tem o id igual o id da fruta
+    let preco = precos.find(itemPreco => itemPreco.id == fruta.id);
 
-    //Realizando uma busca no objeto fruta com o objeto precos.
-    let preco = precos.find(preco => preco.id === fruta.id);
-    return { ...fruta, preco: preco ? preco.preco : null };
-    // return {fruta:fruta.id,fruta:fruta.nmFruta, preco:preco ? preco.preco:null};
+    // retorna o preço se ele existir, se não, 0
+    return { ...fruta, preco: preco ? preco.preco : 0 };
+});
+console.log(frutasPrecificadas);
+
+console.log("--------------------------");
+
+// aqui uso FILTER
+let frutasAbaixoPreco = frutasPrecificadas.filter((fruta) => fruta.preco <= 7);
+console.log(frutasAbaixoPreco);
+
+console.log("--------------------------");
+
+
+const numeros = [1, 2, 3, 4, 5];
+
+let soma = numeros.reduce((acumulador, numeroAtual) => {
+    return acumulador + numeroAtual;
 });
 
-
-console.log(frutasPrecificadas);
+console.log(soma);
