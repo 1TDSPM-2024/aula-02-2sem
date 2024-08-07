@@ -44,19 +44,43 @@ let precos = [
     { "id": 5, "preco": 6.33 }
 ];
 
-// let frutasPrecificadas = frutas.map((fruta) => {
 
-//Realizando uma busca no objeto fruta com o objeto precos. (sozinho)
-//     let selecionado = precos.find(fruta => fruta.preco >= 10)
-//     console.log(`${selecionado.fruta.id} tem o preço de R$${selecionado.preco} `)
-
-// })
 
 let frutasPrecificadas = frutas.map((fruta) => {
 
     let preco = precos.find(preco => preco.id == fruta.id);
     return { ...fruta, preco: preco ? preco.preco : null }
-
 })
 
 console.log(frutasPrecificadas);
+
+const frutasAbaixoDoPreco = frutasPrecificadas.filter((fruta) => fruta.preco <= 7)
+
+
+console.log(frutasAbaixoDoPreco);
+//Exemplo simples de acumulação de valores do array com FOR EACH:
+// let numeros = [1, 2, 3, 4, 5];
+// let acumulado;
+// numeros.forEach((numero) => {
+//     ;
+//     numero += numero;
+//     acumulado = numero
+//     console.log(acumulado);
+// })
+
+// for (let x = 0; x < numeros.length; ++x) {
+//     numeros[x] += numeros[x];
+//     acumulado = numeros[x]
+// }
+
+// console.log(acumulado)
+
+// let numeros = [1, 2, 3, 4, 5]
+// let soma = numeros.reduce((acumulador, valorAtual) => {
+//     return acumulador + valorAtual;
+
+
+// });
+
+// console.log(soma);
+
