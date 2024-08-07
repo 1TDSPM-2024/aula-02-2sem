@@ -43,10 +43,38 @@ let precos = [
 
 let frutasPrecificadas = frutas.map((fruta) => {
 
-    //Realizando uma busca no objeto fruta com o objeto precos.
+    //    REALIZANDO UMA BUSCA NO OBJETO FRUTA COM O OBJETO PRECOS.
     let preco = precos.find(preco => preco.id === fruta.id);
     return { ...fruta, preco: preco ? preco.preco : null };
     //return { fruta: fruta.id, fruta: fruta.nmFruta, preco: preco ? preco.preco : null };
 });
+// }).filter() ;
 
 console.log(frutasPrecificadas);
+
+//Filtrar as frutas com preço menor que 7;
+const frutasAbaixoDoPreco = frutasPrecificadas.filter((fruta) => fruta.preco <= 7);
+console.log(frutasAbaixoDoPreco);
+
+//let numeros = [1,2,3,4,5];
+
+// numeros.forEach( (numero)=> {
+//     numero += numero;
+//     acumulado = numero;
+//     console.log(acumulado);
+// });
+
+// for (let x = 0; x < numeros.length; ++x) {
+//     numeros[x] += numeros[x];
+//     acumulado = numeros[x];
+// }
+
+// console.log(acumulado);
+
+//REDUCE
+// let numeros = [1,2,3,4,5];
+
+// const soma = numeros.reduce((acumulado,valAtual)=>{
+//     return acumulado+valAtual;
+// });
+
